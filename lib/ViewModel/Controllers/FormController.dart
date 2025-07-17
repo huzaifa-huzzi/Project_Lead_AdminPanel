@@ -7,6 +7,9 @@ class FilterController extends GetxController {
   var city = ''.obs;
   var suburbs = ''.obs;
   var keywordCategory = ''.obs;
+  var selectedFilter = 'Daily'.obs;
+
+  List<String> filterOptions = ['Daily', 'Weekly', 'Monthly'];
   List<String> keywordCategories = [
     'Hospitality',
     'Construction'
@@ -27,4 +30,6 @@ class FilterController extends GetxController {
     state.value = '';
     city.value = '';
   }
+
+
 }

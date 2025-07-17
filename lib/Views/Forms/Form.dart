@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../Resources/Colors/Colors.dart';
+import '../../Resources/Resuable Widgets/FormCard.dart';
 import '../../Resources/Resuable Widgets/Sizing of Screen.dart';
 import '../../ViewModel/Controllers/FormController.dart';
 
 class FormScreen extends StatelessWidget {
   FormScreen({super.key});
   final FilterController controller = Get.put(FilterController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class FormScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Forms",
+              "Forms Received",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -41,11 +43,103 @@ class FormScreen extends StatelessWidget {
             ),
             SizedBox(height: SizingConfig.height(0.03)),
             _buildResponsiveFilters(),
+            SizedBox(height: SizingConfig.height(0.1)),
+            Text(
+              "Forms Submitted",
+              style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColor,
+              ),
+            ),
+            SizedBox(height: SizingConfig.height(0.03)),
+            Center(
+              child: Obx(() {
+                return SizedBox(
+                  width: 200,
+                  child: DropdownButtonFormField<String>(
+                    value: controller.selectedFilter.value,
+                    items: controller.filterOptions.map((filter) {
+                      return DropdownMenuItem(
+                        value: filter,
+                        child: Text(filter),
+                      );
+                    }).toList(),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    ),
+                    onChanged: (value) {
+                      controller.selectedFilter.value = value!;
+                    },
+                  ),
+                );
+              }),
+            ),
+            SizedBox(height: SizingConfig.height(0.025)),
+            FormDataCard(
+                keywordCategory: 'hospitaity',
+                keywordTitle: 'Fuel',
+                name: 'Ali',
+                email: 'Ali@example',
+                phoneNumber: '+92333',
+                numberType: 'Personal',
+                website: 'https://githuc.vom',
+                zipCode: '48010',
+                suburb: 'haucs',
+                city: 'Melbourne',
+                state: 'Queensland',
+                address: 'abcakckbdddd',
+                country: 'Australia'),
+            FormDataCard(
+                keywordCategory: 'hospitaity',
+                keywordTitle: 'Fuel',
+                name: 'Ali',
+                email: 'Ali@example',
+                phoneNumber: '+92333',
+                numberType: 'Personal',
+                website: 'https://githuc.vom',
+                zipCode: '48010',
+                suburb: 'haucs',
+                city: 'Melbourne',
+                state: 'Queensland',
+                address: 'abcakckbdddd',
+                country: 'Australia'),
+            FormDataCard(
+                keywordCategory: 'hospitaity',
+                keywordTitle: 'Fuel',
+                name: 'Ali',
+                email: 'Ali@example',
+                phoneNumber: '+92333',
+                numberType: 'Personal',
+                website: 'https://githuc.vom',
+                zipCode: '48010',
+                suburb: 'haucs',
+                city: 'Melbourne',
+                state: 'Queensland',
+                address: 'abcakckbdddd',
+                country: 'Australia'),
+            FormDataCard(
+                keywordCategory: 'hospitaity',
+                keywordTitle: 'Fuel',
+                name: 'Ali',
+                email: 'Ali@example',
+                phoneNumber: '+92333',
+                numberType: 'Personal',
+                website: 'https://githuc.vom',
+                zipCode: '48010',
+                suburb: 'haucs',
+                city: 'Melbourne',
+                state: 'Queensland',
+                address: 'abcakckbdddd',
+                country: 'Australia'),
           ],
         ),
       ),
     );
   }
+
+
 
   Widget _buildResponsiveFilters() {
     return Container(
@@ -101,7 +195,7 @@ class FormScreen extends StatelessWidget {
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
           filled: true,
-          fillColor: Colors.transparent, // Removes white background
+          fillColor: Colors.transparent,
         ),
       );
     });
