@@ -23,10 +23,19 @@ class FormScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Search Filters",
+              "Forms",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: AppColors.textColor,
+              ),
+            ),
+            SizedBox(height: SizingConfig.height(0.1)),
+            Text(
+              "Search",
+              style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w600,
                 color: AppColors.textColor,
               ),
             ),
