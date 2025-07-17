@@ -49,7 +49,7 @@ class FormScreen extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            _buildFieldWrapper(_buildDropdownField("Keyword Category", controller.keywordCategory, controller.keywordCategories)),
+            _buildFieldWrapper(_buildDropdownField("Select Category", controller.keywordCategory, controller.keywordCategories)),
             _buildVerticalDivider(),
             _buildFieldWrapper(_buildTextField("Suburb")),
             _buildVerticalDivider(),
@@ -124,7 +124,7 @@ class FormScreen extends StatelessWidget {
       width: 48,
       child: ElevatedButton(
         onPressed: () {
-          print("Keyword Category: ${controller.keywordCategory.value}");
+          print("Select Category: ${controller.keywordCategory.value}");
           print("Suburb: ${controller.suburbs.value}");
           print("State: ${controller.state.value}");
           print("City: ${controller.city.value}");
