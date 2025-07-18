@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_x_adminpanel/Views/Forms/Form.dart';
-
 import '../../Resources/Colors/Colors.dart';
 import '../../Resources/Resuable Widgets/Sizing of Screen.dart';
 import '../../ViewModel/Controllers/DashBoardController.dart';
