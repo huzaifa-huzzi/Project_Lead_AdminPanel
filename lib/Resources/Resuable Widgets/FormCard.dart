@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:project_x_adminpanel/Resources/Resuable Widgets/Sizing of Screen.dart';
 import 'package:project_x_adminpanel/Resources/Colors/Colors.dart';
+import '../../ViewModel/Controllers/FormController.dart';
 
 class FormDataTable extends StatelessWidget {
   final List<Map<String, String>> formData;
@@ -15,6 +17,7 @@ class FormDataTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FilterController controller = Get.put(FilterController());
     SizingConfig.init(context);
 
     return SingleChildScrollView(
@@ -85,6 +88,25 @@ class FormDataTable extends StatelessWidget {
                 Divider(height: 1, thickness: 0.8, color: Colors.grey.shade200),
               ],
             )),
+            /// Pagination
+            SizedBox(height: SizingConfig.height(0.04),),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 350),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(onPressed: controller.currentPage.value > 1 ? controller.previousPage:null, icon: Icon(Icons.arrow_back_ios,size: 18,)),
+                  Text('Page ${controller.currentPage.value} of ${controller.totalPages}',style: TextStyle( fontSize: 14,
+                    fontWeight: FontWeight.w500,),),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios, size: 18),
+                    onPressed: controller.currentPage.value < controller.totalPages
+                        ? controller.nextPage
+                        : null,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

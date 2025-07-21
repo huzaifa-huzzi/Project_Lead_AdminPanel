@@ -52,30 +52,6 @@ class FormScreen extends StatelessWidget {
                 color: AppColors.textColor,
               ),
             ),
-            SizedBox(height: SizingConfig.height(0.03)),
-            Center(
-              child: Obx(() {
-                return SizedBox(
-                  width: 200,
-                  child: DropdownButtonFormField<String>(
-                    value: controller.selectedFilter.value,
-                    items: controller.filterOptions.map((filter) {
-                      return DropdownMenuItem(
-                        value: filter,
-                        child: Text(filter),
-                      );
-                    }).toList(),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    ),
-                    onChanged: (value) {
-                      controller.selectedFilter.value = value!;
-                    },
-                  ),
-                );
-              }),
-            ),
             SizedBox(height: SizingConfig.height(0.09)),
             FormDataTable(
               formData: [
@@ -128,8 +104,6 @@ class FormScreen extends StatelessWidget {
               ],
 
             ),
-
-
           ],
         ),
       ),
@@ -198,7 +172,6 @@ class FormScreen extends StatelessWidget {
     );
   }
 
-
   Widget _buildSizedField(Widget child, double width) {
     return SizedBox(
       width: width,
@@ -215,7 +188,6 @@ class FormScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 6),
     );
   }
-
 
   Widget _buildTextField(String hint) {
     return Obx(() {
