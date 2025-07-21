@@ -76,63 +76,60 @@ class FormScreen extends StatelessWidget {
                 );
               }),
             ),
-            SizedBox(height: SizingConfig.height(0.025)),
-            FormDataCard(
-                keywordCategory: 'hospitaity',
-                keywordTitle: 'Fuel',
-                name: 'Ali',
-                email: 'Ali@example',
-                phoneNumber: '+92333',
-                numberType: 'Personal',
-                website: 'https://githuc.vom',
-                zipCode: '48010',
-                suburb: 'haucs',
-                city: 'Melbourne',
-                state: 'Queensland',
-                address: 'abcakckbdddd',
-                country: 'Australia'),
-            FormDataCard(
-                keywordCategory: 'hospitaity',
-                keywordTitle: 'Fuel',
-                name: 'Ali',
-                email: 'Ali@example',
-                phoneNumber: '+92333',
-                numberType: 'Personal',
-                website: 'https://githuc.vom',
-                zipCode: '48010',
-                suburb: 'haucs',
-                city: 'Melbourne',
-                state: 'Queensland',
-                address: 'abcakckbdddd',
-                country: 'Australia'),
-            FormDataCard(
-                keywordCategory: 'hospitaity',
-                keywordTitle: 'Fuel',
-                name: 'Ali',
-                email: 'Ali@example',
-                phoneNumber: '+92333',
-                numberType: 'Personal',
-                website: 'https://githuc.vom',
-                zipCode: '48010',
-                suburb: 'haucs',
-                city: 'Melbourne',
-                state: 'Queensland',
-                address: 'abcakckbdddd',
-                country: 'Australia'),
-            FormDataCard(
-                keywordCategory: 'hospitaity',
-                keywordTitle: 'Fuel',
-                name: 'Ali',
-                email: 'Ali@example',
-                phoneNumber: '+92333',
-                numberType: 'Personal',
-                website: 'https://githuc.vom',
-                zipCode: '48010',
-                suburb: 'haucs',
-                city: 'Melbourne',
-                state: 'Queensland',
-                address: 'abcakckbdddd',
-                country: 'Australia'),
+            SizedBox(height: SizingConfig.height(0.09)),
+            FormDataTable(
+              formData: [
+                {
+                  "Name" : "Huzaifa",
+                  "Email" : "huzaifa@gmail.com",
+                  "Category": "Construction",
+                  "Title": "Builder",
+                  "Phone No": "03331234567",
+                  "Number Type": "Business",
+                  "Website": "abc.com",
+                  "Zip Code": "54000",
+                  "Suburb": "Model Town",
+                  "City": "Lahore",
+                  "State": "Punjab",
+                  "Address": "street no 2,kiddcs",
+                  "Country": "Pakistan",
+
+                },
+                {
+                  "Name": "Ahmed",
+                  "Email": "ahmed@gmail.com",
+                  "Category": "Hospitality",
+                  "Title": "Chef",
+                  "Phone No": "0300YYYYYYY",
+                  "Number Type": "Personal",
+                  "Website": "www.ahmedchef.com",
+                  "Zip Code": "12345",
+                  "Suburb": "Gulshan",
+                  "City": "Karachi",
+                  "State": "Sindh",
+                  "Address": "Block B, House 17",
+                  "Country": "Pakistan"
+                },
+                {
+                  "Name": "Sara",
+                  "Email": "sara@gmail.com",
+                  "Category": "IT",
+                  "Title": "Developer",
+                  "Phone No": "0321ZZZZZZZ",
+                  "Number Type": "Business",
+                  "Website": "www.saradev.com",
+                  "Zip Code": "75800",
+                  "Suburb": "Clifton",
+                  "City": "Karachi",
+                  "State": "Sindh",
+                  "Address": "Clifton Block 2",
+                  "Country": "Pakistan"
+                }
+              ],
+
+            ),
+
+
           ],
         ),
       ),
@@ -142,46 +139,83 @@ class FormScreen extends StatelessWidget {
 
 
   Widget _buildResponsiveFilters() {
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.borderColor),
-      ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            _buildFieldWrapper(_buildDropdownField("Select Category", controller.keywordCategory, controller.keywordCategories)),
-            _buildVerticalDivider(),
-            _buildFieldWrapper(_buildTextField("Suburb")),
-            _buildVerticalDivider(),
-            _buildFieldWrapper(_buildDropdownField("State", controller.state, controller.states)),
-            _buildVerticalDivider(),
-            _buildFieldWrapper(_buildDropdownField("City", controller.city, controller.cities)),
-            _buildVerticalDivider(),
-            _buildFieldWrapper(_buildDropdownField("Number Type", controller.numberType, controller.numberTypes)),
-            _buildSearchButton(),
-          ],
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double maxWidth = constraints.maxWidth.clamp(600, 1000);
+        double spacing = 12;
+        double fieldWidth = (maxWidth - (10 * spacing)) / 6;
+
+        return Center(
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 6,
+                  color: Colors.black.withOpacity(0.05),
+                ),
+              ],
+            ),
+            constraints: BoxConstraints(maxWidth: maxWidth),
+            child: Wrap(
+              spacing: spacing,
+              runSpacing: spacing,
+              alignment: WrapAlignment.start,
+              children: [
+                _buildSizedField(
+                  _buildDropdownField("Category", controller.keywordCategory, controller.keywordCategories),
+                  fieldWidth,
+                ),
+                _buildSizedField(
+                  _buildTextField("Suburb"),
+                  fieldWidth,
+                ),
+                _buildSizedField(
+                  _buildDropdownField("State", controller.state, controller.states),
+                  fieldWidth,
+                ),
+                _buildSizedField(
+                  _buildDropdownField("City", controller.city, controller.cities),
+                  fieldWidth,
+                ),
+                _buildSizedField(
+                  _buildDropdownField("No Type", controller.numberType, controller.numberTypes),
+                  fieldWidth,
+                ),
+                SizedBox(
+                  width: fieldWidth,
+                  height: 48,
+                  child: _buildSearchButton(),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
-  Widget _buildFieldWrapper(Widget child) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: SizedBox(width: 180, height: 48, child: child),
+
+  Widget _buildSizedField(Widget child, double width) {
+    return SizedBox(
+      width: width,
+      height: 48,
+      child: child,
     );
   }
 
   Widget _buildVerticalDivider() {
     return Container(
-      height: 30,
+      height: 40,
       width: 1,
-      color: AppColors.borderColor.withOpacity(0.5),
+      color: AppColors.borderColor.withOpacity(0.4), // Or use a light grey like Colors.grey[300]
+      margin: const EdgeInsets.symmetric(horizontal: 6),
     );
   }
+
 
   Widget _buildTextField(String hint) {
     return Obx(() {
@@ -223,8 +257,8 @@ class FormScreen extends StatelessWidget {
 
   Widget _buildSearchButton() {
     return SizedBox(
-      height: 48,
-      width: 48,
+      height: 30,
+      width: 30,
       child: ElevatedButton(
         onPressed: () {
           print("Select Category: ${controller.keywordCategory.value}");
@@ -235,11 +269,8 @@ class FormScreen extends StatelessWidget {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryColor,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(8),
-              bottomRight: Radius.circular(8),
-            ),
+          shape:  RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
           ),
           padding: EdgeInsets.zero,
         ),
