@@ -55,8 +55,6 @@ class FormDataTable extends StatelessWidget {
                 }).toList(),
               ),
             ),
-
-
             /// Data Rows
             ...formData.map((data) => Column(
               children: [
@@ -128,7 +126,6 @@ class FormDataTable extends StatelessWidget {
       ),
     );
   }
-
   /// Action Cell with Edit/Delete Icons
   Widget _actionCell() {
     return Container(
@@ -142,7 +139,6 @@ class FormDataTable extends StatelessWidget {
       ),
     );
   }
-
   Widget _actionIcon(IconData icon, Color color, VoidCallback onPressed) {
     return Padding(
       padding: EdgeInsets.only(right: SizingConfig.width(0.01)),
