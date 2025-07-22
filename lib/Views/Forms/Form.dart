@@ -375,15 +375,6 @@ class FormScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildVerticalDivider() {
-    return Container(
-      height: 40,
-      width: 1,
-      color: AppColors.borderColor.withOpacity(0.4), // Or use a light grey like Colors.grey[300]
-      margin: const EdgeInsets.symmetric(horizontal: 6),
-    );
-  }
-
   Widget _buildTextField(String hint) {
     return Obx(() {
       return TextFormField(
