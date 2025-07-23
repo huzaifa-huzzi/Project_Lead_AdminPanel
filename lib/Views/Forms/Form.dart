@@ -54,6 +54,7 @@ class FormScreen extends StatelessWidget {
             ),
             SizedBox(height: SizingConfig.height(0.09)),
             FormDataTable(
+
               formData: [
                 {
                   "Name" : "Huzaifa",

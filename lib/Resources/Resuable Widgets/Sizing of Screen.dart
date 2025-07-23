@@ -10,6 +10,7 @@ class SizingConfig {
     screenWidth = size.width;
   }
 
+
   static double height(double value) => screenHeight * value;
   static double width(double value) => screenWidth * value;
 }
