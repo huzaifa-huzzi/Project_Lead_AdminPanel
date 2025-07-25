@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class SizingConfig {
   static double screenHeight = 1;
   static double screenWidth = 1;
