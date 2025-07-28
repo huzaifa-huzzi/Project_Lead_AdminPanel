@@ -22,6 +22,15 @@ class RegistrationController extends GetxController {
     users.removeAt(index);
  }
 
+  /// Edit user data
+  void editUser(int index, String username, String password, String name) {
+    users[index] = {
+      'username': username,
+      'password': password,
+      'name': name,
+    };
+  }
+
 
 
 

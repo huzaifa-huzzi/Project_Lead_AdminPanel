@@ -30,7 +30,7 @@ class FormDataTable extends StatelessWidget {
           children: [
             /// Header Row
             Container(
-              color: Colors.grey.shade50,
+              color: Colors.grey[300],
               padding: EdgeInsets.symmetric(
                 vertical: SizingConfig.height(0.018),
                 horizontal: SizingConfig.width(0.015),
