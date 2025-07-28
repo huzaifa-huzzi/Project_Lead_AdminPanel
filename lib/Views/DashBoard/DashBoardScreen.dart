@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_x_adminpanel/Views/Forms/Form.dart';
+import 'package:project_x_adminpanel/Views/Registration/RegistrationScreen.dart';
 import '../../Resources/Colors/Colors.dart';
 import '../../Resources/Resuable Widgets/Sizing of Screen.dart';
 import '../../ViewModel/Controllers/DashBoardController.dart';
-
 
 
 
@@ -14,11 +14,13 @@ class DashboardScreen extends StatelessWidget {
   final DashboardController controller = Get.put(DashboardController());
 
   final List<Widget> _screens = [
-    FormScreen()
+    FormScreen(),
+    RegistrationScreen(),
   ];
 
   final List<Map<String, dynamic>> menuItems = [
     {'icon': Icons.description, 'label': 'Form'},
+    {'icon': Icons.app_registration, 'label': 'Registration'},
   ];
 
   Widget buildSidebar(bool isDrawer, BuildContext context, double screenWidth) {
