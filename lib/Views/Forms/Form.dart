@@ -25,15 +25,6 @@ class FormScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Forms Received",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: AppColors.textColor,
-              ),
-            ),
-            SizedBox(height: SizingConfig.height(0.1)),
-            Text(
               "Search",
               style: TextStyle(
                 fontSize: 17,
@@ -54,7 +45,6 @@ class FormScreen extends StatelessWidget {
             ),
             SizedBox(height: SizingConfig.height(0.09)),
             FormDataTable(
-
               formData: [
                 {
                   "Name" : "Huzaifa",
@@ -297,7 +287,6 @@ class FormScreen extends StatelessWidget {
 
                 },
               ],
-
             ),
           ],
         ),
