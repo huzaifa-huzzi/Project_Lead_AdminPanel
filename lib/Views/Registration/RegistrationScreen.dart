@@ -6,6 +6,8 @@ import 'package:project_x_adminpanel/Resources/Resuable Widgets/AddUserDialog.da
 import 'package:project_x_adminpanel/ViewModel/Controllers/RegistrationController.dart';
 import '../../Resources/Resuable Widgets/Sizing of Screen.dart';
 
+
+
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
 
