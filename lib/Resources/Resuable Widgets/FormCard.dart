@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:project_x_adminpanel/Resources/Resuable Widgets/Sizing of Screen.dart';
 import 'package:project_x_adminpanel/Resources/Colors/Colors.dart';
@@ -134,8 +135,8 @@ class FormDataTable extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Row(
         children: [
-          _actionIcon(Icons.edit, AppColors.primaryColor, () {}),
-          _actionIcon(Icons.delete_outline, Colors.redAccent, () {}),
+          _actionIcon(FontAwesomeIcons.edit,AppColors.primaryColor,() {}),
+          _actionIcon(FontAwesomeIcons.trashAlt, Colors.redAccent, () {}),
         ],
       ),
     );
