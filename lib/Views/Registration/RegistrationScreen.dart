@@ -1,12 +1,9 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:project_x_adminpanel/Resources/Colors/Colors.dart';
 import 'package:project_x_adminpanel/Resources/Resuable Widgets/AddUserDialog.dart';
 import 'package:project_x_adminpanel/ViewModel/Controllers/RegistrationController.dart';
-import 'package:remixicon/remixicon.dart';
 import '../../Resources/Resuable Widgets/Sizing of Screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
