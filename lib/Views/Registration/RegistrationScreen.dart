@@ -122,28 +122,61 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               Expanded(
                                 flex: 2,
                                 child: Wrap(
-                                  spacing: 8.0,
+                                  spacing: 4,
+                                  runSpacing: 8.0,
+                                  alignment: WrapAlignment.start,
                                   children: [
-                                    IconButton(
-                                      icon: Icon(MdiIcons.bookEdit, color: Colors.blue,size: 22,),
-                                      onPressed: () {
-                                        showDialog(
-                                          context: context,
-                                          builder: (_) => AddUserDialog(
-                                            onAdd: (username, password, name) {
-                                              controller.editUser(index, username, password, name);
-                                            },
-                                          ),
-                                        );
-                                      },
+                                    // View Button
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.shade200,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: IconButton(
+                                        icon: Icon(Icons.remove_red_eye, color: Colors.grey[800], size: 20),
+                                        onPressed: () {
+                                          // TODO: view logic
+                                        },
+                                      ),
                                     ),
-                                    IconButton(
-                                      icon:Icon(MdiIcons.deleteForever, color: Colors.red,),
-                                      onPressed: () => controller.deleteUser(index),
+
+                                    // Edit Button
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.orange.shade50,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: IconButton(
+                                        icon: Icon(Icons.edit, color: Colors.orange, size: 20),
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (_) => AddUserDialog(
+                                              onAdd: (username, password, name) {
+                                                controller.editUser(index, username, password, name);
+                                              },
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+
+                                    // Delete Button
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.red.shade50,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: IconButton(
+                                        icon: Icon(Icons.delete_forever, color: Colors.red, size: 20),
+                                        onPressed: () => controller.deleteUser(index),
+                                      ),
                                     ),
                                   ],
                                 ),
                               )
+
+
 
                             ],
                           ),
