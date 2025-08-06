@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:project_x_adminpanel/Resources/Colors/Colors.dart';
 import 'package:project_x_adminpanel/Resources/Resuable Widgets/AddUserDialog.dart';
 import 'package:project_x_adminpanel/ViewModel/Controllers/RegistrationController.dart';
