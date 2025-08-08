@@ -4,6 +4,7 @@ import 'package:project_x_adminpanel/Views/DashBoard/DashBoardScreen.dart';
 import 'package:project_x_adminpanel/Views/Forms/Form.dart';
 import 'package:project_x_adminpanel/Views/Registration/RegistrationScreen.dart';
 
+
 class AppRoutes {
 
   static appRoutes () => [
