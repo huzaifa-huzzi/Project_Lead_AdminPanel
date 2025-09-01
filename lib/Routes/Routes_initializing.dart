@@ -8,7 +8,6 @@ import 'package:project_x_adminpanel/Views/Registration/RegistrationScreen.dart'
 
 
 
-
 class AppRoutes {
 
   static appRoutes () => [
